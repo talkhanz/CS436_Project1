@@ -50,10 +50,11 @@ def draw_rectangle(event,x,y,flags,param):
         clicked_points.append([x,y])
     
 def heat_map(img,points,gauss,k=21,height=700,width=700,tim=5):
-    if len(points)>tim:
+    new_points = points.copy()
+    if len(points)>tim and tim != -1:
         print("lengthhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh",len(points))
-        points=points[len(points)-1-tim:]
-    for point in points:
+        new_points=new_points[len(points)-1-tim:]
+    for point in new_points:
         for p in point:
             x=p[0]
             y=p[1]
